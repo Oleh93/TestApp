@@ -90,7 +90,6 @@ struct Results {
 
 protocol APIServiceProtocol {
     var baseUrl: String { get }
-    var task: URLSessionDataTask? { get }
 
     func executeRequest(
         _ request: APIRequest,
@@ -103,8 +102,6 @@ protocol APIServiceProtocol {
 // MARK: - APIService
 final class APIService: APIServiceProtocol {
     var baseUrl: String { "https://jsonplaceholder.typicode.com/" }
-
-    var task: URLSessionDataTask?
 
     func executeRequest(
         _ request: APIRequest,
