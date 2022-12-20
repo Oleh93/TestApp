@@ -68,6 +68,7 @@ final class CommentsViewModel: CommentsViewModelProtocol {
 
         viewController?.showTableFooterSpinner()
 
+        // iterate over ids range and load each comment by id from given range
         for i in currentPageRange {
             dispatchGroup.enter()
             commentsAPI.getComments(commentId: i) { [weak self] response in
@@ -91,7 +92,7 @@ final class CommentsViewModel: CommentsViewModelProtocol {
             self.currentPageComments.removeAll()
 
             self.viewController?.hideTableFooterSpinner()
-            let indexPaths = newIndexPathsRange.map { IndexPath(item: $0, section: 0) }
+            let indexPaths = newIndexPathsRange.map { IndexPath(item: $0, section: .zero) }
             self.viewController?.insertRows(at: indexPaths)
         }
     }

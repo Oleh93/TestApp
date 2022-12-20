@@ -124,7 +124,6 @@ final class APIService: APIServiceProtocol {
                 DispatchQueue.main.async { failed(ResponseError.unknown) }
             }
         }
-
         DispatchQueue.global(qos: .background).async { task.resume() }
     }
 }

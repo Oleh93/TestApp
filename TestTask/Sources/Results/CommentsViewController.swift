@@ -116,6 +116,7 @@ extension CommentsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // load next page when displaying last cell
         if indexPath.row == viewModel.comments.count - 1 {
             viewModel.loadNextPageIfNeeded()
         }

@@ -34,7 +34,7 @@ final class CommentsAPI: CommentsAPIProtocol {
         success: @escaping CompletionWithDecodable<CommentResponse>,
         failed: @escaping CompletionWithError
     ) {
-        var request = CommentsRequest(commentId: commentId)
+        let request = CommentsRequest(commentId: commentId)
         apiService.executeRequest(
             request,
             encodeType: .json,
